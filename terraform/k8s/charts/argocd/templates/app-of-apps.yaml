@@ -9,13 +9,13 @@ metadata:
     "helm.sh/hook": post-install
 spec:
   destination:
-    server: {{ .Values.httpserver.spec.destination.server }}
+    server: {{ .Values.appofapps.spec.destination.server }}
     namespace: argocd
   project: default
   source:
     path: terraform/k8s/charts/argo-applications
-    repoURL: {{ .Values.kubedoom.spec.source.repoURL }}
-    targetRevision: {{ .Values.kubedoom.spec.source.targetRevision }}
+    repoURL: {{ .Values.appofapps.spec.source.repoURL }}
+    targetRevision: {{ .Values.appofapps.spec.source.targetRevision }}
     helm:
       releaseName: app-of-apps
   syncPolicy:
