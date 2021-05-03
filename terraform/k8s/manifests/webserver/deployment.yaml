@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: http-server
+  labels:
+    app: http-server
+spec:
+  selector:
+    matchLabels:
+      app: http-server
+  template:
+    metadata:
+      labels:
+        app: http-server
+    spec:
+      containers:
+      - name: http-server
+        image: nginx:1.19
+        ports:
+        - containerPort: 80
+          name: http-server
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html
+          # readOnly: false
+      volumes:
+        - name: www
+          configMap:
+            name: www
+      restartPolicy: Always

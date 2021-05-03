@@ -1,0 +1,24 @@
+# https://github.com/storax/kubedoom/tree/master/manifest   
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubedoom
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: kubedoom
+    server: {{ .Values.kubedoom.spec.destination.server }}
+  project: default
+  source:
+    path: manifest
+    repoURL: {{ .Values.kubedoom.spec.source.repoURL }}
+    targetRevision: {{ .Values.kubedoom.spec.source.targetRevision }}
+  syncPolicy: {}
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true

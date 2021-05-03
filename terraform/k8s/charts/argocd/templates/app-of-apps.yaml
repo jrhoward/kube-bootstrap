@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    "helm.sh/hook": post-install
+spec:
+  destination:
+    server: {{ .Values.httpserver.spec.destination.server }}
+    namespace: argocd
+  project: default
+  source:
+    path: terraform/k8s/charts/argo-applications
+    repoURL: {{ .Values.kubedoom.spec.source.repoURL }}
+    targetRevision: {{ .Values.kubedoom.spec.source.targetRevision }}
+    helm:
+      releaseName: app-of-apps
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -1,0 +1,9 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: www
+data:
+  index.html: |
+    <!DOCTYPE html><html><body>ok</body</html>
+  50x.html: |
+    <!DOCTYPE html><html><body>error</body></html>
