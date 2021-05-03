@@ -13,7 +13,7 @@ spec:
     server: {{ .Values.httpserver.spec.destination.server }}
   project: default
   source:
-    path: manifest/webserver
+    path: manifests/webserver
     repoURL: {{ .Values.httpserver.spec.source.repoURL }}
     targetRevision: {{ .Values.httpserver.spec.source.targetRevision }}
   syncPolicy:
