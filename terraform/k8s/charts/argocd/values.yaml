@@ -10,9 +10,9 @@ appofapps:
         destination:
             server: https://kubernetes.default.svc
         source:
-            repoUrl: https://github.com/jrhoward/kube-bootstrap.git
+            repoURL: https://github.com/jrhoward/kube-bootstrap.git
             targetRevision: HEAD
 
-argo-cd:
-  enabled: true
-  installCRDs: false
+# argo-cd:
+#   enabled: true
+#   installCRDs: false

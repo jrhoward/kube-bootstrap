@@ -5,8 +5,6 @@ metadata:
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-  annotations:
-    "helm.sh/hook": post-install
 spec:
   destination:
     server: {{ .Values.appofapps.spec.destination.server }}

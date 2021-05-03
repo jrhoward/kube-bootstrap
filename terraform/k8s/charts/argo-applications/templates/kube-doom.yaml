@@ -16,7 +16,7 @@ spec:
     path: manifest
     repoURL: {{ .Values.kubedoom.spec.source.repoURL }}
     targetRevision: {{ .Values.kubedoom.spec.source.targetRevision }}
-  syncPolicy: {}
+  syncPolicy:
     syncOptions:
       - CreateNamespace=true
     automated:

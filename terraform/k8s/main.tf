@@ -28,34 +28,37 @@ resource "kubernetes_namespace" "argocd" {
 
 # export KUBE_CONFIG_PATH=/path/to/.kube/config
 
-# resource "helm_release" "argocd" {
-#   name       = "cluster"
+resource "helm_release" "argocd" {
+  name       = "cluster"
 
-#   repository = "https://argoproj.github.io/argo-helm"
-#   chart      = "argo-cd"
-#   namespace  = "argocd"
+  repository = "https://argoproj.github.io/argo-helm"
+  chart      = "argo-cd"
+  namespace  = "argocd"
 
-#   # values = [
-#   #   file("${path.module}/argo-values-cd.yaml")
-#   # ]
+  # values = [
+  #   file("${path.module}/argo-values-cd.yaml")
+  # ]
 
-#   depends_on = [
-#     kubernetes_namespace.argocd
-#   ]
+  depends_on = [
+    kubernetes_namespace.argocd
+  ]
 
-#   set {
-#     name  = "installCRDs"
-#     value = "false"
-#   }
-# }
+  set {
+    name  = "installCRDs"
+    value = "false"
+  }
+}
 
 
 ## Bootstrap
-resource "helm_release" "argocd" {
-  name       = "cluster"
+resource "helm_release" "argocd_app_of_apps" {
+  name       = "bootstrap"
   chart      = "./charts/argocd"
   namespace  = "argocd"
-  create_namespace = true
+  #dependency_update = true
+  # values = [
+  #   file("${path.module}/charts/argocd/values.yaml")
+  # ]
   depends_on = [
     kubernetes_namespace.argocd
   ]
