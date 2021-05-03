@@ -11,7 +11,7 @@ kubedoom:
         destination:
             server: https://kubernetes.default.svc
         source:
-            repoUrl: https://github.com/storax/kubedoom.git
+            repoURL: https://github.com/storax/kubedoom.git
             targetRevision: HEAD
 httpserver:
     spec:
