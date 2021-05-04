@@ -53,13 +53,13 @@ resource "helm_release" "argocd" {
 ## Bootstrap
 resource "helm_release" "argocd_app_of_apps" {
   name       = "bootstrap"
-  chart      = "./charts/argocd"
+  chart      = "./charts/app-of-apps"
   namespace  = "argocd"
   #dependency_update = true
   # values = [
   #   file("${path.module}/charts/argocd/values.yaml")
   # ]
   depends_on = [
-    kubernetes_namespace.argocd
+    helm_release.argocd
   ]
 }
