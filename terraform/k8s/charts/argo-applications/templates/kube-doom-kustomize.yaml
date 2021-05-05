@@ -1,24 +1,20 @@
-# https://github.com/storax/kubedoom/tree/master/manifest   
 
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: httpserver
+  name: kustomize-kubedoom
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: httpserver
+    namespace: kubedoom
     server: {{ .Values.local.spec.destination.server }}
   project: default
   source:
-    path: terraform/k8s/manifests/webserver
+    path: terraform/k8s/kustomize/kubedoom
     repoURL: {{ .Values.local.spec.source.repoURL }}
     targetRevision: {{ .Values.local.spec.source.targetRevision }}
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-    automated:
-      prune: true
-      selfHeal: true

@@ -13,12 +13,11 @@ kubedoom:
         source:
             repoURL: https://github.com/storax/kubedoom.git
             targetRevision: HEAD
-httpserver:
+local:
     spec:
         destination:
             server: https://kubernetes.default.svc
         source:
             repoURL: https://github.com/jrhoward/kube-bootstrap.git
             targetRevision: HEAD
-
 
