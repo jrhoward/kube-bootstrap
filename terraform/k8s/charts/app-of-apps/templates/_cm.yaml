@@ -1,8 +1,0 @@
-kind: ConfigMap
-apiVersion: v1
-metadata:
-  name: argocd-cm
-data:
-  repositories: |
-    - url: https://github.com/jrhoward/kube-bootstrap
-    

@@ -24,6 +24,10 @@ resource "kubernetes_namespace" "argocd" {
 
     name = "argocd"
   }
+  timeouts {
+
+    delete = "30m"
+  }
 }
 
 # export KUBE_CONFIG_PATH=/path/to/.kube/config
@@ -35,9 +39,9 @@ resource "helm_release" "argocd" {
   chart      = "argo-cd"
   namespace  = "argocd"
 
-  # values = [
-  #   file("${path.module}/argo-values-cd.yaml")
-  # ]
+  values = [
+    file("${path.module}/charts/argo-overrides/argo-values.yaml")
+  ]
 
   depends_on = [
     kubernetes_namespace.argocd

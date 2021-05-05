@@ -12,7 +12,3 @@ appofapps:
         source:
             repoURL: https://github.com/jrhoward/kube-bootstrap.git
             targetRevision: HEAD
-
-# argo-cd:
-#   enabled: true
-#   installCRDs: false

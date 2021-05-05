@@ -1,2 +1,3 @@
+**/.terraform.*.info
 **/.terraform
 **/terraform.tfstate*
