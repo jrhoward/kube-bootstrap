@@ -5,3 +5,4 @@ resources:
 - https://raw.githubusercontent.com/storax/kubedoom/master/manifest/00namespace.yaml
 - https://raw.githubusercontent.com/storax/kubedoom/master/manifest/deployment.yaml
 - https://raw.githubusercontent.com/storax/kubedoom/master/manifest/rbac.yaml
+- service.yaml
