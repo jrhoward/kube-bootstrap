@@ -54,7 +54,7 @@ module "key_pair" {
   source = "terraform-aws-modules/key-pair/aws"
   version = "1.0.0"
   key_name   = local.cluster_name
-  public_key = tls_private_key.this.public_key_openssh
+  public_key = tls_private_key.this[0].public_key_openssh
 }
 
 module "bootstrap" {

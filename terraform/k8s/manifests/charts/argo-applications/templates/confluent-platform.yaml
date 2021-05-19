@@ -15,7 +15,7 @@ spec:
     repoURL: https://github.com/jrhoward/kube-bootstrap.git
     targetRevision: {{ .Values.local.spec.source.targetRevision }}
     plugin:
-      name: helm-kustomize
+      name: kustomized-helm
       env:
         - name: CHART_ARCHIVE
           value: confluent-platform-warapper-0.1.0.tgz
