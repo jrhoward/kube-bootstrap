@@ -6,9 +6,9 @@ server:
       - name: kustomized-helm
         init:
           command: ["/bin/sh", "-c"]
-          args: ["echo 'hello world'"]
+          args: ["tar -xzf ${CHART_ARCHIVE} --strip-components=1 && helm dependency build"]
         generate:
-          command: [sh, -c]
-          args: ["helm template ${RELEASE_NAME} ${CHART_ARCHIVE} > all.yaml && kustomize build"] 
+          command: ["/bin/sh", -c]
+          args: ["helm template ${RELEASE_NAME} . > all.yaml && kustomize build"] 
 dex:
   enabled: false

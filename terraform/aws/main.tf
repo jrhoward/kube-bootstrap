@@ -36,9 +36,9 @@ module "k8s" {
   worker_groups = [
     {
       instance_type    = "t3.small"
-      asg_max_size     = 3
+      asg_max_size     = 4
       asg_min_size     = 0
-      asg_desired_size = 2
+      asg_desired_size = 3
       public_ip        = true # need a NAT Gateway in VPC if this is False
     }
   ]
