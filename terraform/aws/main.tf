@@ -40,9 +40,6 @@ module "k8s" {
       asg_min_size     = 0
       asg_desired_size = 2
       public_ip        = true # need a NAT Gateway in VPC if this is False
-      #pre_userdata     = "sudo yum install -y ec2-instance-connect"
-      #create_launch_template = true
-      # key_name         = module.key_pair.key_pair_key_name
     }
   ]
 }
