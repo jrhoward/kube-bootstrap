@@ -13,7 +13,7 @@ spec:
     server: {{ .Values.local.spec.destination.server }}
   project: default
   source:
-    path: terraform/k8s/manifests/webserver
+    path: terraform/k8s/manifests/plain/webserver
     repoURL: {{ .Values.local.spec.source.repoURL }}
     targetRevision: {{ .Values.local.spec.source.targetRevision }}
   syncPolicy:

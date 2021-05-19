@@ -1,53 +1,22 @@
-# terraform {
-#   required_providers {
-#     kubernetes = {
-#       source = "hashicorp/kubernetes"
-#     }
-#   }
-# }
-
-# provider "kubernetes" {
-#   config_path    = "~/.kube/config"
-#   config_context = "k3d-argo"
-# }
-
-
-# resource "kubernetes_namespace" "argocd" {
-#   metadata {
-#     annotations = {
-#       name = "argocd"
-#     }
-
-#     # labels = {
-#     #   mylabel = "label-value"
-#     # }
-
-#     name = "argocd"
-#   }
-#   timeouts {
-
-#     delete = "30m"
-#   }
-# }
-
-# export KUBE_CONFIG_PATH=/path/to/.kube/config
-
+provider "helm" {
+  kubernetes {
+    host                   = var.k8s_host
+    cluster_ca_certificate = var.k8s_cert
+    token                  = var.k8s_token
+  }
+}
+# Deploy ArgoCD helm chart to cluster
 resource "helm_release" "argocd" {
-  name       = "cluster"
+  name = "cluster"
 
-  repository = "https://argoproj.github.io/argo-helm"
-  chart      = "argo-cd"
-  namespace  = "argocd"
+  repository       = "https://argoproj.github.io/argo-helm"
+  chart            = "argo-cd"
+  namespace        = "argocd"
   create_namespace = true
 
   values = [
-    file("${path.module}/charts/argo-overrides/argo-values.yaml")
+    file("${path.module}/manifests/charts/argo-overrides/argo-values.yaml")
   ]
-
-  # depends_on = [
-  #   kubernetes_namespace.argocd
-  # ]
-
   set {
     name  = "installCRDs"
     value = "false"
@@ -55,15 +24,11 @@ resource "helm_release" "argocd" {
 }
 
 
-## Bootstrap
+## Bootstrap the applicationsß
 resource "helm_release" "argocd_app_of_apps" {
-  name       = "bootstrap"
-  chart      = "./charts/app-of-apps"
-  namespace  = "argocd"
-  #dependency_update = true
-  # values = [
-  #   file("${path.module}/charts/argocd/values.yaml")
-  # ]
+  name      = "bootstrap"
+  chart     = "${path.module}/manifests/charts/app-of-apps"
+  namespace = "argocd"
   depends_on = [
     helm_release.argocd
   ]

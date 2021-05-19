@@ -12,7 +12,7 @@ spec:
     server: {{ .Values.local.spec.destination.server }}
   project: default
   source:
-    path: terraform/k8s/kustomize/kubedoom
+    path: terraform/k8s/manifests/kustomize/kubedoom
     repoURL: {{ .Values.local.spec.source.repoURL }}
     targetRevision: {{ .Values.local.spec.source.targetRevision }}
   syncPolicy:
