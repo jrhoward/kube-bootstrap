@@ -14,6 +14,6 @@ entries:
     name: confluent-platform-warapper
     type: application
     urls:
-    - https://jrhoward.github.io/kube-bootstrap/confluent-platform-warapper-0.1.0.tgz
+    - https://jrhoward.github.io/kube-bootstrap/helm-charts/confluent-platform-warapper-0.1.0.tgz
     version: 0.1.0
 generated: "2021-05-19T15:36:12.805423+10:00"
