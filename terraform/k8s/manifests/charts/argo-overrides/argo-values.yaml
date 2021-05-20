@@ -2,7 +2,7 @@ server:
   config:
     repositories: |
       - type: helm
-        name: confluent-platform
+        name: cp-helm-charts
         url: https://confluentinc.github.io/cp-helm-charts/
     configManagementPlugins: |
       - name: kustomized-helm
