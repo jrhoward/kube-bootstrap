@@ -1,7 +1,9 @@
 server:
   config:
-    # repositories: |
-    #   - url: https://github.com/jrhoward/kube-bootstrap
+    repositories: |
+      - type: helm
+        name: confluent-platform
+        url: https://confluentinc.github.io/cp-helm-charts/
     configManagementPlugins: |
       - name: kustomized-helm
         init:
@@ -10,5 +12,6 @@ server:
         generate:
           command: ["/bin/sh", -c]
           args: ["helm template ${RELEASE_NAME} . > all.yaml && kustomize build"] 
+    
 dex:
   enabled: false

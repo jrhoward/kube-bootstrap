@@ -32,7 +32,7 @@ module "k8s" {
   subnets         = aws_subnet.main.*.id
   vpc_id          = aws_vpc.main.id
   tags            = local.tags
-  kubeconfig_name = "kubeconfig_${local.cluster_name}"
+  kubeconfig_name = "kubeconfig_tf"
   worker_groups = [
     {
       instance_type    = "t3.small"

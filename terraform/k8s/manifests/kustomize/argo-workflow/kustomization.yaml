@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
 - https://raw.githubusercontent.com/argoproj/argo-workflows/stable/manifests/quick-start-postgres.yaml
+- smoketest-workflow-template.yaml
 
 patchesStrategicMerge:
 - overlay.yaml
