@@ -8,7 +8,7 @@ server:
       - name: kustomized-helm
         init:
           command: ["/bin/sh", "-c"]
-          args: ["tar -xzf ${CHART_ARCHIVE} --strip-components=1 && helm dependency build"]
+          args: ["tar -xzf ${CHART_ARCHIVE} --strip-components=1 && helm dependency update ."]
         generate:
           command: ["/bin/sh", -c]
           args: ["helm template ${RELEASE_NAME} . > all.yaml && kustomize build"] 
