@@ -15,7 +15,7 @@ resource "helm_release" "argocd" {
   create_namespace = true
 
   values = [
-    file("${path.module}/manifests/charts/argo-overrides/argo-values.yaml")
+    file("${path.module}/manifests/argo-overrides/argo-values.yaml")
   ]
   set {
     name  = "installCRDs"
@@ -24,7 +24,7 @@ resource "helm_release" "argocd" {
 }
 
 
-## Bootstrap the applicationsß
+## Bootstrap the applications
 resource "helm_release" "argocd_app_of_apps" {
   name      = "bootstrap"
   chart     = "${path.module}/manifests/charts/app-of-apps"
