@@ -11,7 +11,7 @@ spec:
     namespace: argocd
   project: default
   source:
-    path: terraform/k8s/manifests/charts/argo-applications
+    path: terraform/k8s/manifests/charts/applications
     repoURL: {{ .Values.appofapps.spec.source.repoURL }}
     targetRevision: {{ .Values.appofapps.spec.source.targetRevision }}
     helm:
