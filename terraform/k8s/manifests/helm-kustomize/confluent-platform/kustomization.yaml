@@ -11,3 +11,8 @@ patches:
     version: v1
     kind: StatefulSet
     name: .*-cp-kafka
+- path: overlays/canary.yaml
+  target:
+    version: v1
+    kind: Pod
+    name: .*-canary

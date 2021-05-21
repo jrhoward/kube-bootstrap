@@ -6,4 +6,4 @@ resources:
 - smoketest-workflow-template.yaml
 
 patchesStrategicMerge:
-- overlay.yaml
+- overlays/smoke-test-template.yaml

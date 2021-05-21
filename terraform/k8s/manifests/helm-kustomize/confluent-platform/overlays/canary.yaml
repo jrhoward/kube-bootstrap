@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: DUMMY_VALUE
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+
