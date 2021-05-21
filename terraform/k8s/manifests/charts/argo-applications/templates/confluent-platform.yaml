@@ -18,7 +18,7 @@ spec:
       name: kustomized-helm
       env:
         - name: CHART_ARCHIVE
-          value: confluent-platform-warapper-0.1.0.tgz
+          value: confluent-platform-wrapper-0.1.0.tgz
         - name: RELEASE_NAME
           value: example
   syncPolicy:

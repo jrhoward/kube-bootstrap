@@ -1,19 +1,19 @@
 apiVersion: v1
 entries:
-  confluent-platform-warapper:
+  confluent-platform-wrapper:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-05-19T15:36:12.812512+10:00"
+    created: "2021-05-21T10:42:15.124122+10:00"
     dependencies:
     - condition: cp-helm-charts.enabled
       name: cp-helm-charts
       repository: https://confluentinc.github.io/cp-helm-charts/
       version: 0.6.0
     description: A Helm chart for Kubernetes
-    digest: 97332fd50799427ab1e9a9973449e8c01919a0e66954f317401990e3729de180
-    name: confluent-platform-warapper
+    digest: 4d953f8e06fa402cc121dd234af62d2fe2b4f346731179ec86257f321da7ae1c
+    name: confluent-platform-wrapper
     type: application
     urls:
-    - https://jrhoward.github.io/kube-bootstrap/confluent-platform-warapper-0.1.0.tgz
+    - https://jrhoward.github.io/kube-bootstrap/helm-charts/confluent-platform-wrapper-0.1.0.tgz
     version: 0.1.0
-generated: "2021-05-19T15:36:12.805423+10:00"
+generated: "2021-05-21T10:42:15.111542+10:00"
