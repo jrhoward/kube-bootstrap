@@ -37,8 +37,7 @@ module "k8s" {
     {
       instance_type    = "t3.small"
       asg_max_size     = 4
-      asg_min_size     = 0
-      asg_desired_size = 3
+      asg_min_size     = 3
       public_ip        = true # need a NAT Gateway in VPC if this is False
     }
   ]
