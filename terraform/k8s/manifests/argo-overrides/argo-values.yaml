@@ -4,6 +4,12 @@ server:
       - type: helm
         name: cp-helm-charts
         url: https://confluentinc.github.io/cp-helm-charts/
+      - type: helm
+        name: hashicorp
+        url: https://helm.releases.hashicorp.com
+      - type: helm
+        name: confluent-platform-wrapper
+        url: https://jrhoward.github.io/kube-bootstrap/helm-charts/
     configManagementPlugins: |
       - name: kustomized-helm
         init:
