@@ -25,6 +25,6 @@ entries:
     name: confluent-platform-wrapper
     type: application
     urls:
-    - https://jrhoward.github.io/kube-bootstrap/helm-charts/confluent-platform-wrapper-0.1.0.tgz
+    - https://jrhoward.github.io/kube-bootstrap/helm-charts/confluent-platform-warapper-0.1.0.tgz
     version: 0.1.0
 generated: "2021-06-04T13:28:03.580887+10:00"
